@@ -44,6 +44,19 @@ export class CollaborativeWebSocketServer {
     return this.store;
   }
 
+  public broadcastSnapshot(workspaceId: string) {
+    const snapshot = this.store.getSnapshot(workspaceId);
+    const presences = this.store.getActivePresences(workspaceId);
+    this.broadcastToWorkspace(workspaceId, {
+      type: 'workspace.snapshot',
+      workspace: snapshot.workspace,
+      tasks: snapshot.tasks,
+      comments: snapshot.comments,
+      revision: snapshot.revision,
+      activePresences: presences,
+    });
+  }
+
   private setupListeners() {
     this.wss.on('connection', (ws: WebSocket, req) => {
       if (req && req.socket && typeof req.socket.setNoDelay === 'function') {

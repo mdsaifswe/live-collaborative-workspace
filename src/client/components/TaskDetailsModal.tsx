@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Task, TaskStatus, TaskPriority } from '../../shared/types';
 import { useWorkspace } from '../context/WorkspaceContext';
 import { CommentThread } from './CommentThread';
-import { X, Trash2, Edit2, Check, Clock } from 'lucide-react';
+import { X, Trash2, Edit2, Check, Clock, Calendar } from 'lucide-react';
 
 interface TaskDetailsModalProps {
   task: Task | null;
@@ -17,12 +17,14 @@ export const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState('');
   const [editDescription, setEditDescription] = useState('');
+  const [editDueDate, setEditDueDate] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     if (task) {
       setEditTitle(task.title);
       setEditDescription(task.description);
+      setEditDueDate(task.dueDate || '');
       setIsEditing(false);
       updatePresence(task.id);
     } else {
@@ -68,6 +70,7 @@ export const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({
       await updateTask(task.id, {
         title: editTitle.trim(),
         description: editDescription.trim(),
+        dueDate: editDueDate || undefined,
       });
       setIsEditing(false);
     } catch (err) {
@@ -100,10 +103,29 @@ export const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({
     >
       <div className="modal-content" style={{ maxWidth: '720px' }}>
         <div className="modal-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
             <span className={`priority-pill priority-${task.priority}`}>
               {task.priority}
             </span>
+            {task.dueDate && (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.3rem',
+                  fontSize: '0.75rem',
+                  color: 'var(--text-muted)',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  padding: '0.15rem 0.45rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--border-subtle)',
+                }}
+                title={`Due date: ${task.dueDate}`}
+              >
+                <Calendar size={12} aria-hidden="true" color="var(--accent-primary)" />
+                <span>Due: {task.dueDate}</span>
+              </span>
+            )}
             <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>
               Revision v{task.version}
             </span>
@@ -179,6 +201,19 @@ export const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({
                 />
               </div>
 
+              <div className="form-group">
+                <label htmlFor="edit-task-due-date" className="form-label">
+                  Due Date
+                </label>
+                <input
+                  id="edit-task-due-date"
+                  type="date"
+                  className="form-input"
+                  value={editDueDate}
+                  onChange={(e) => setEditDueDate(e.target.value)}
+                />
+              </div>
+
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem' }}>
                 <button
                   type="button"
@@ -196,10 +231,26 @@ export const TaskDetailsModal: React.FC<TaskDetailsModalProps> = ({
             <div>
               <h2
                 id="task-detail-title"
-                style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.75rem' }}
+                style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.5rem' }}
               >
                 {task.title}
               </h2>
+
+              {task.dueDate && (
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    fontSize: '0.85rem',
+                    color: 'var(--text-dim)',
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  <Calendar size={14} aria-hidden="true" color="var(--accent-primary)" />
+                  <span>Due date: <strong style={{ color: 'var(--text-main)' }}>{task.dueDate}</strong></span>
+                </div>
+              )}
 
               <p
                 style={{

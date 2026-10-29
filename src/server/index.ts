@@ -27,6 +27,7 @@ app.get('/api/workspace/:id/snapshot', (req, res) => {
 // Reset endpoint for testing & benchmark isolation
 app.post('/api/test/reset', (_req, res) => {
   wsServer.getStore().clearAll();
+  wsServer.broadcastSnapshot('default-workspace');
   res.json({ status: 'reset_ok' });
 });
 

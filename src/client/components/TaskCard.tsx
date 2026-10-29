@@ -1,6 +1,6 @@
 import React from 'react';
 import { Task } from '../../shared/types';
-import { MessageSquare, Clock } from 'lucide-react';
+import { MessageSquare, Clock, Calendar } from 'lucide-react';
 
 interface TaskCardProps {
   task: Task;
@@ -33,7 +33,7 @@ const TaskCardComponent: React.FC<TaskCardProps> = ({
       data-comment-count={commentCount}
       onClick={() => onClick(task)}
       onKeyDown={handleKeyDown}
-      aria-label={`Task: ${task.title}. Priority: ${task.priority}. Status: ${task.status}`}
+      aria-label={`Task: ${task.title}. Priority: ${task.priority}. Status: ${task.status}${task.dueDate ? `. Due date: ${task.dueDate}` : ''}`}
     >
       <div className="task-card-header">
         <h3 className="task-card-title">{task.title}</h3>
@@ -48,9 +48,32 @@ const TaskCardComponent: React.FC<TaskCardProps> = ({
       {task.description && <p className="task-card-desc">{task.description}</p>}
 
       <div className="task-card-footer">
-        <span className={`priority-pill priority-${task.priority}`}>
-          {task.priority}
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+          <span className={`priority-pill priority-${task.priority}`}>
+            {task.priority}
+          </span>
+          {task.dueDate && (
+            <span
+              className="task-due-date"
+              data-testid="task-due-date"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                fontSize: '0.72rem',
+                color: 'var(--text-muted)',
+                background: 'rgba(255, 255, 255, 0.04)',
+                border: '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '0.12rem 0.4rem',
+              }}
+              title={`Due date: ${task.dueDate}`}
+            >
+              <Calendar size={11} aria-hidden="true" color="var(--accent-primary)" />
+              <span>{task.dueDate}</span>
+            </span>
+          )}
+        </div>
 
         <div className="task-meta-icons">
           {commentCount > 0 && (
@@ -72,3 +95,4 @@ const TaskCardComponent: React.FC<TaskCardProps> = ({
 };
 
 export const TaskCard = React.memo(TaskCardComponent);
+

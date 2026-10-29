@@ -1,6 +1,6 @@
 import React from 'react';
 import { useWorkspace } from '../context/WorkspaceContext';
-import { X, RefreshCw, Trash2, Database, Activity } from 'lucide-react';
+import { X, RefreshCw, Trash2, Database, Activity, Check } from 'lucide-react';
 
 interface DiagnosticsDrawerProps {
   isOpen: boolean;
@@ -22,6 +22,9 @@ export const DiagnosticsDrawer: React.FC<DiagnosticsDrawerProps> = ({
     reconnect,
   } = useWorkspace();
 
+  const [purgeStatus, setPurgeStatus] = React.useState<'idle' | 'purging' | 'success'>('idle');
+  const [reconnectStatus, setReconnectStatus] = React.useState<'idle' | 'reconnecting' | 'success'>('idle');
+
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
@@ -33,6 +36,28 @@ export const DiagnosticsDrawer: React.FC<DiagnosticsDrawerProps> = ({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
+
+  const handlePurge = async () => {
+    if (purgeStatus === 'purging') return;
+    try {
+      setPurgeStatus('purging');
+      await clearLocalData({ resetServer: true });
+      setPurgeStatus('success');
+      setTimeout(() => setPurgeStatus('idle'), 3000);
+    } catch (err) {
+      console.error('[DiagnosticsDrawer] Purge failed:', err);
+      setPurgeStatus('idle');
+    }
+  };
+
+  const handleReconnect = () => {
+    setReconnectStatus('reconnecting');
+    reconnect();
+    setTimeout(() => {
+      setReconnectStatus('success');
+      setTimeout(() => setReconnectStatus('idle'), 2000);
+    }, 400);
+  };
 
   return (
     <aside
@@ -144,14 +169,64 @@ export const DiagnosticsDrawer: React.FC<DiagnosticsDrawerProps> = ({
           {/* Actions */}
           <section style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <h3 style={{ fontSize: '0.9rem', fontWeight: 600 }}>Simulation Controls</h3>
-            <button onClick={reconnect} className="btn btn-secondary">
-              <RefreshCw size={14} />
-              <span>Force Reconnect</span>
+            <button
+              onClick={handleReconnect}
+              className="btn btn-secondary"
+              id="btn-force-reconnect"
+              disabled={reconnectStatus === 'reconnecting'}
+            >
+              <RefreshCw size={14} className={reconnectStatus === 'reconnecting' ? 'spin' : ''} />
+              <span>
+                {reconnectStatus === 'reconnecting'
+                  ? 'Reconnecting...'
+                  : reconnectStatus === 'success'
+                  ? 'Reconnected ✓'
+                  : 'Force Reconnect'}
+              </span>
             </button>
-            <button onClick={clearLocalData} className="btn btn-danger">
-              <Trash2 size={14} />
-              <span>Purge Local IndexedDB & Cache</span>
+
+            <button
+              onClick={handlePurge}
+              className="btn btn-danger"
+              id="btn-purge-idb"
+              disabled={purgeStatus === 'purging'}
+            >
+              {purgeStatus === 'purging' ? (
+                <>
+                  <RefreshCw size={14} className="spin" />
+                  <span>Purging IndexedDB & Cache...</span>
+                </>
+              ) : purgeStatus === 'success' ? (
+                <>
+                  <Check size={14} />
+                  <span>Purged Successfully!</span>
+                </>
+              ) : (
+                <>
+                  <Trash2 size={14} />
+                  <span>Purge Local IndexedDB & Cache</span>
+                </>
+              )}
             </button>
+
+            {purgeStatus === 'success' && (
+              <div
+                style={{
+                  fontSize: '0.75rem',
+                  color: 'var(--state-connected)',
+                  background: 'rgba(16, 185, 129, 0.1)',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  padding: '0.5rem 0.75rem',
+                  borderRadius: 'var(--radius-sm)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                }}
+              >
+                <Check size={12} />
+                <span>IndexedDB, local cache & board data wiped clean.</span>
+              </div>
+            )}
           </section>
         </div>
 

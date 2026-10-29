@@ -43,7 +43,7 @@ interface WorkspaceContextValue {
   deleteComment: (commentId: string) => Promise<string>;
   resolveConflict: (conflictId: string, resolution: 'client' | 'server') => Promise<void>;
   updatePresence: (activeTaskId?: string) => void;
-  clearLocalData: () => Promise<void>;
+  clearLocalData: (options?: { resetServer?: boolean }) => Promise<void>;
   reconnect: () => void;
 }
 
@@ -242,9 +242,25 @@ export const WorkspaceProvider: React.FC<{
     if (orchestrator) orchestrator.updatePresence(activeTaskId);
   }, [orchestrator]);
 
-  const clearLocalData = useCallback(async () => {
-    if (orchestrator) await orchestrator.clearLocalData();
-  }, [orchestrator]);
+  const clearLocalData = useCallback(async (options?: { resetServer?: boolean }) => {
+    if (!orchestrator) return;
+    if (options?.resetServer) {
+      try {
+        const httpUrl = effectiveServerUrl.replace(/^ws(s)?:\/\//, 'http$1://');
+        await fetch(`${httpUrl}/api/test/reset`, { method: 'POST' });
+      } catch (err) {
+        console.warn('[WorkspaceContext] Server reset request failed:', err);
+      }
+    }
+    await orchestrator.clearLocalData();
+    if (typeof localStorage !== 'undefined') {
+      try {
+        localStorage.removeItem('collab_user');
+      } catch {
+        // Ignore
+      }
+    }
+  }, [orchestrator, effectiveServerUrl]);
 
   const reconnect = useCallback(() => {
     if (cm) cm.connect();

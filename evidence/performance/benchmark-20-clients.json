@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-29T00:28:37.048Z",
+  "timestamp": "2026-10-29T01:11:54.660Z",
   "config": {
     "concurrentClients": 20,
     "totalOperations": 120,
@@ -16,31 +16,31 @@
   "metrics": {
     "totalOperations": 120,
     "sampleCount": 1900,
-    "durationMs": 4609.803,
-    "opsPerSecond": 26.031481171755065,
-    "p50Ms": 2.1865999999999985,
-    "p95Ms": 4.541099999999915,
-    "p99Ms": 5.043699999999717,
-    "minMs": 0.8790999999991982,
-    "maxMs": 5.233899999999721,
-    "avgMs": 2.3924530526316037,
+    "durationMs": 4616.4017,
+    "opsPerSecond": 25.994271685672413,
+    "p50Ms": 2.899699999999939,
+    "p95Ms": 4.915100000000166,
+    "p99Ms": 5.533300000000054,
+    "minMs": 1.2633999999998196,
+    "maxMs": 6.386700000000019,
+    "avgMs": 3.0366284736842015,
     "failedOperations": 0,
     "rejectedOperations": 0,
     "convergenceFailures": 0,
     "authoritativeRevision": 120,
     "initialMemory": {
-      "rss": 69902336,
-      "heapTotal": 23773184,
-      "heapUsed": 17147104,
+      "rss": 74498048,
+      "heapTotal": 23248896,
+      "heapUsed": 17102320,
       "external": 6440517,
       "arrayBuffers": 2375075
     },
     "finalMemory": {
-      "rss": 80011264,
-      "heapTotal": 33112064,
-      "heapUsed": 18194112,
-      "external": 6836526,
-      "arrayBuffers": 2627241
+      "rss": 83243008,
+      "heapTotal": 33374208,
+      "heapUsed": 18175080,
+      "external": 6836512,
+      "arrayBuffers": 2627227
     }
   },
   "passed": true

@@ -4,7 +4,7 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\MD. SAIF\\Documents\\live-collaborative-workspace\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/e2e/offline-reconnect.spec.ts"
+      "tests/e2e/purge-check.spec.ts"
     ],
     "configFile": "C:\\Users\\MD. SAIF\\Documents\\live-collaborative-workspace\\playwright.config.ts",
     "rootDir": "C:/Users/MD. SAIF/Documents/live-collaborative-workspace/tests/e2e",
@@ -117,61 +117,52 @@
   },
   "suites": [
     {
-      "title": "offline-reconnect.spec.ts",
-      "file": "offline-reconnect.spec.ts",
+      "title": "purge-check.spec.ts",
+      "file": "purge-check.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Offline IndexedDB Persistence & Reconnection (Playwright E2E)",
-          "file": "offline-reconnect.spec.ts",
-          "line": 3,
-          "column": 6,
-          "specs": [
+          "title": "Purge Local IndexedDB & Cache button wipes board, resets revision, and shows success feedback",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "persists offline mutations across page reload and reconciles on reconnect",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
                 {
-                  "timeout": 30000,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9155,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:09:57.501Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2433,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T10:59:06.348Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
+                  "attachments": []
                 }
               ],
-              "id": "7175df7c37b1101692a4-000dd33e9424ad41565b",
-              "file": "offline-reconnect.spec.ts",
-              "line": 4,
-              "column": 3
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "cc22d6baa3971fdafe1c-6ba1bcb50a0d1be5a345",
+          "file": "purge-check.spec.ts",
+          "line": 3,
+          "column": 1
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-27T10:59:04.859Z",
-    "duration": 4536.143,
+    "startTime": "2026-10-29T01:09:56.294Z",
+    "duration": 10985.274,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
