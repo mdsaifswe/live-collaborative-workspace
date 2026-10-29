@@ -1,0 +1,47 @@
+
+> live-collaborative-workspace@1.0.0 test
+> vitest run --reporter=verbose
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Users/MD. SAIF/Documents/live-collaborative-workspace[39m
+
+ [32mΓ£ô[39m tests/integration/multi-client-sync.test.ts[2m > [22mMulti-Client Real-Time Synchronization (Integration)[2m > [22msynchronizes task creation in real time to other connected clients[32m 65[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/multi-client-sync.test.ts[2m > [22mMulti-Client Real-Time Synchronization (Integration)[2m > [22msynchronizes task status updates in real time[32m 17[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/multi-client-sync.test.ts[2m > [22mMulti-Client Real-Time Synchronization (Integration)[2m > [22msynchronizes comments across clients without refreshing[32m 18[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/workspace-isolation.test.ts[2m > [22mWorkspace Isolation Security (Integration)[2m > [22mprevents workspace A events from leaking to workspace B[33m 388[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/offline-replay.test.ts[2m > [22mOffline Reconnection & Safe Operation Replay (Integration)[2m > [22mreconnects with lastRevision, receives missed events and safely replays queued operations[33m 654[2mms[22m[39m
+[90mstdout[2m | tests/unit/sync-orchestrator.test.ts[2m > [22m[2mSyncOrchestrator & Optimistic Updates[2m > [22m[2mimmediately applies optimistic task creation and queues in pendingOps
+[22m[39m[IndexedDB] Upgrading schema from v0 to v1
+
+ [32mΓ£ô[39m tests/unit/sync-orchestrator.test.ts[2m > [22mSyncOrchestrator & Optimistic Updates[2m > [22mimmediately applies optimistic task creation and queues in pendingOps[32m 16[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/sync-orchestrator.test.ts[2m > [22mSyncOrchestrator & Optimistic Updates[2m > [22mupdates task optimistically and records pending op[32m 4[2mms[22m[39m
+[90mstdout[2m | tests/unit/idb-repository.test.ts[2m > [22m[2mIndexedDBRepository & Offline Persistence[2m > [22m[2mpersists tasks and queries by workspace index
+[22m[39m[IndexedDB] Upgrading schema from v0 to v1
+
+ [32mΓ£ô[39m tests/unit/idb-repository.test.ts[2m > [22mIndexedDBRepository & Offline Persistence[2m > [22mpersists tasks and queries by workspace index[32m 15[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/idb-repository.test.ts[2m > [22mIndexedDBRepository & Offline Persistence[2m > [22mpersists durable pending-operation queue[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/idb-repository.test.ts[2m > [22mIndexedDBRepository & Offline Persistence[2m > [22msaves and updates sync metadata revision[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/server-command.test.ts[2m > [22mAuthoritativeStore & Command Handling[2m > [22mcreates task, assigns version 1 and increments workspace revision[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/server-command.test.ts[2m > [22mAuthoritativeStore & Command Handling[2m > [22mis idempotent: duplicate opId returns previous ack without re-executing[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/server-command.test.ts[2m > [22mAuthoritativeStore & Command Handling[2m > [22mupdates task with version concurrency check and increments version[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/server-command.test.ts[2m > [22mAuthoritativeStore & Command Handling[2m > [22mrejects update if entity is deleted[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/server-command.test.ts[2m > [22mAuthoritativeStore & Command Handling[2m > [22mcreates and retrieves comments attached to tasks[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/integration/server-command.test.ts[2m > [22mAuthoritativeStore & Command Handling[2m > [22mtracks missed events for reconnecting clients[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/protocol.test.ts[2m > [22mProtocol Validation[2m > [22mrejects non-object messages[32m 3[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/protocol.test.ts[2m > [22mProtocol Validation[2m > [22mrejects commands without a type[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/protocol.test.ts[2m > [22mProtocol Validation[2m > [22mrejects unknown command types[32m 0[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/protocol.test.ts[2m > [22mProtocol Validation[2m > [22mvalidates workspace.subscribe correctly[32m 0[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/protocol.test.ts[2m > [22mProtocol Validation[2m > [22mvalidates task.create correctly[32m 0[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/protocol.test.ts[2m > [22mProtocol Validation[2m > [22mvalidates task.update requiring opId and taskId[32m 0[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/conflict.test.ts[2m > [22mConflict Handling & Deterministic 3-Way Merge[2m > [22mmerges non-overlapping concurrent changes cleanly[32m 2[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/conflict.test.ts[2m > [22mConflict Handling & Deterministic 3-Way Merge[2m > [22mdetects conflict when both users edit the same field differently[32m 5[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/conflict.test.ts[2m > [22mConflict Handling & Deterministic 3-Way Merge[2m > [22mcreates structured conflict record for inspection[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/connection-manager.test.ts[2m > [22mConnectionManager[2m > [22minitializes in disconnected state[32m 2[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/connection-manager.test.ts[2m > [22mConnectionManager[2m > [22mcalculates exponential backoff with jitter bounded by maxBackoff[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/unit/connection-manager.test.ts[2m > [22mConnectionManager[2m > [22mnotifies state change listeners[32m 1[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m9 passed[39m[22m[90m (9)[39m
+[2m      Tests [22m [1m[32m28 passed[39m[22m[90m (28)[39m
+[2m   Start at [22m 13:38:31
+[2m   Duration [22m 3.37s[2m (transform 705ms, setup 0ms, collect 2.77s, tests 1.27s, environment 3ms, prepare 2.08s)[22m
+

@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-10-27T04:56:22.793Z",
+  "config": {
+    "concurrentClients": 20,
+    "totalOperations": 120,
+    "warmupOperations": 20,
+    "mutationIntervalMs": 25,
+    "targetP95Ms": 200,
+    "workspaceId": "benchmark-sprint-ws"
+  },
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "nodeVersion": "v24.19.0"
+  },
+  "metrics": {
+    "totalOperations": 120,
+    "sampleCount": 1900,
+    "durationMs": 4539.5264,
+    "opsPerSecond": 26.434475631642986,
+    "p50Ms": 1.7925000000000182,
+    "p95Ms": 4.108600000000024,
+    "p99Ms": 7.8827000000001135,
+    "minMs": 0.7859000000003107,
+    "maxMs": 8.281100000000151,
+    "avgMs": 2.114875105263116,
+    "failedOperations": 0,
+    "rejectedOperations": 0,
+    "convergenceFailures": 0,
+    "authoritativeRevision": 120,
+    "initialMemory": {
+      "rss": 72798208,
+      "heapTotal": 22986752,
+      "heapUsed": 17027080,
+      "external": 6440517,
+      "arrayBuffers": 2375075
+    },
+    "finalMemory": {
+      "rss": 82231296,
+      "heapTotal": 33636352,
+      "heapUsed": 18176368,
+      "external": 6831365,
+      "arrayBuffers": 2622080
+    }
+  },
+  "passed": true
+}

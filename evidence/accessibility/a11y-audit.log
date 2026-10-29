@@ -1,0 +1,11 @@
+
+> live-collaborative-workspace@1.0.0 a11y
+> playwright test tests/e2e/accessibility.spec.ts
+
+
+Running 2 tests using 1 worker
+
+  ok 1 [chromium] ΓÇ║ tests\e2e\accessibility.spec.ts:5:3 ΓÇ║ Accessibility & Keyboard Navigation (a11y) ΓÇ║ passes automated axe accessibility scan on main workspace (7.1s)
+  ok 2 [chromium] ΓÇ║ tests\e2e\accessibility.spec.ts:28:3 ΓÇ║ Accessibility & Keyboard Navigation (a11y) ΓÇ║ supports full keyboard navigation and escape to close modals (2.3s)
+
+  2 passed (20.9s)

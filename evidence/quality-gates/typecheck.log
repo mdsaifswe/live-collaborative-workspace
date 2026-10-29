@@ -1,0 +1,4 @@
+
+> live-collaborative-workspace@1.0.0 typecheck
+> tsc --noEmit
+

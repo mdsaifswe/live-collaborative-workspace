@@ -1,0 +1,302 @@
+{
+  "timestamp": "2026-10-27T05:43:15.259Z",
+  "rounds": [
+    {
+      "name": "Round 1",
+      "validation": {
+        "totalSamples": 1064,
+        "measuredSamplesCount": 1064,
+        "invalidCount": 0,
+        "duplicatePairCount": 0,
+        "uniqueRecipientPairs": 1064
+      },
+      "reported": {
+        "totalOperations": 66,
+        "warmupOperations": 10,
+        "measuredOperations": 56,
+        "expectedDeliveries": 1064,
+        "validMeasuredSamples": 1064,
+        "durationMs": 13991.310299999997,
+        "opsPerSecond": 4.717213655107057,
+        "renderedLatency": {
+          "p50Ms": 48.5,
+          "p95Ms": 136.599853515625,
+          "p99Ms": 229.800048828125,
+          "minMs": 2.400146484375,
+          "maxMs": 306.39990234375,
+          "avgMs": 58.73036274157072
+        },
+        "transportLatency": {
+          "p50Ms": 21.10009765625,
+          "p95Ms": 53.300048828125,
+          "p99Ms": 213.60009765625,
+          "avgMs": 25.829142405574483
+        },
+        "renderPaintOverhead": {
+          "avgMs": 32.90122033599624
+        },
+        "reliability": {
+          "missingDeliveries": 0,
+          "duplicateDeliveries": 0,
+          "rejectedOperations": 0,
+          "failedHandlers": 0,
+          "contentDivergences": 0,
+          "authoritativeRevision": 66
+        },
+        "passed": true
+      },
+      "recalculated": {
+        "renderedLatency": {
+          "count": 1064,
+          "min": 2.400146484375,
+          "max": 306.39990234375,
+          "avg": 58.73036274157072,
+          "p50_floor": 48.5,
+          "p95_floor": 136.599853515625,
+          "p99_floor": 229.800048828125,
+          "p50_nearestRank": 48.400146484375,
+          "p95_nearestRank": 136.599853515625,
+          "p99_nearestRank": 229.800048828125
+        },
+        "wsDeliveryLatency": {
+          "count": 1064,
+          "min": 1.099853515625,
+          "max": 254.7001953125,
+          "avg": 25.829142405574483,
+          "p50_floor": 21.10009765625,
+          "p95_floor": 53.300048828125,
+          "p99_floor": 213.60009765625,
+          "p50_nearestRank": 21.10009765625,
+          "p95_nearestRank": 53.300048828125,
+          "p99_nearestRank": 213.60009765625
+        },
+        "renderPaintOverhead": {
+          "count": 1064,
+          "min": 0.39990234375,
+          "max": 302.60009765625,
+          "avg": 32.90122033599624,
+          "p50_floor": 26,
+          "p95_floor": 81.699951171875,
+          "p99_floor": 169.10009765625,
+          "p50_nearestRank": 26,
+          "p95_nearestRank": 81.699951171875,
+          "p99_nearestRank": 169.10009765625
+        }
+      },
+      "discrepancies": {
+        "p50RenderedMatch": true,
+        "p95RenderedMatch": true,
+        "p99RenderedMatch": true,
+        "p50WsMatch": true,
+        "p95WsMatch": true
+      }
+    },
+    {
+      "name": "Round 2",
+      "validation": {
+        "totalSamples": 1064,
+        "measuredSamplesCount": 1064,
+        "invalidCount": 0,
+        "duplicatePairCount": 0,
+        "uniqueRecipientPairs": 1064
+      },
+      "reported": {
+        "totalOperations": 66,
+        "warmupOperations": 10,
+        "measuredOperations": 56,
+        "expectedDeliveries": 1064,
+        "validMeasuredSamples": 1064,
+        "durationMs": 11219.982199999999,
+        "opsPerSecond": 5.882362273266352,
+        "renderedLatency": {
+          "p50Ms": 31.60009765625,
+          "p95Ms": 68.099853515625,
+          "p99Ms": 111.599853515625,
+          "minMs": 2.89990234375,
+          "maxMs": 143.800048828125,
+          "avgMs": 35.14558307389568
+        },
+        "transportLatency": {
+          "p50Ms": 12.900146484375,
+          "p95Ms": 25,
+          "p99Ms": 47.7998046875,
+          "avgMs": 13.4104311376586
+        },
+        "renderPaintOverhead": {
+          "avgMs": 21.735151936237077
+        },
+        "reliability": {
+          "missingDeliveries": 0,
+          "duplicateDeliveries": 0,
+          "rejectedOperations": 0,
+          "failedHandlers": 0,
+          "contentDivergences": 0,
+          "authoritativeRevision": 66
+        },
+        "passed": true
+      },
+      "recalculated": {
+        "renderedLatency": {
+          "count": 1064,
+          "min": 2.89990234375,
+          "max": 143.800048828125,
+          "avg": 35.14558307389568,
+          "p50_floor": 31.60009765625,
+          "p95_floor": 68.099853515625,
+          "p99_floor": 111.599853515625,
+          "p50_nearestRank": 31.60009765625,
+          "p95_nearestRank": 68.099853515625,
+          "p99_nearestRank": 111.599853515625
+        },
+        "wsDeliveryLatency": {
+          "count": 1064,
+          "min": 0.899658203125,
+          "max": 63.300048828125,
+          "avg": 13.4104311376586,
+          "p50_floor": 12.900146484375,
+          "p95_floor": 25,
+          "p99_floor": 47.7998046875,
+          "p50_nearestRank": 12.900146484375,
+          "p95_nearestRank": 25,
+          "p99_nearestRank": 47.7998046875
+        },
+        "renderPaintOverhead": {
+          "count": 1064,
+          "min": 0.5,
+          "max": 129.10009765625,
+          "avg": 21.735151936237077,
+          "p50_floor": 18.7001953125,
+          "p95_floor": 49.800048828125,
+          "p99_floor": 91.800048828125,
+          "p50_nearestRank": 18.699951171875,
+          "p95_nearestRank": 49.800048828125,
+          "p99_nearestRank": 91.800048828125
+        }
+      },
+      "discrepancies": {
+        "p50RenderedMatch": true,
+        "p95RenderedMatch": true,
+        "p99RenderedMatch": true,
+        "p50WsMatch": true,
+        "p95WsMatch": true
+      }
+    },
+    {
+      "name": "Round 3",
+      "validation": {
+        "totalSamples": 1064,
+        "measuredSamplesCount": 1064,
+        "invalidCount": 0,
+        "duplicatePairCount": 0,
+        "uniqueRecipientPairs": 1064
+      },
+      "reported": {
+        "totalOperations": 66,
+        "warmupOperations": 10,
+        "measuredOperations": 56,
+        "expectedDeliveries": 1064,
+        "validMeasuredSamples": 1064,
+        "durationMs": 16394.946200000002,
+        "opsPerSecond": 4.025630776391324,
+        "renderedLatency": {
+          "p50Ms": 35.400146484375,
+          "p95Ms": 83.60009765625,
+          "p99Ms": 1964,
+          "minMs": 1.5,
+          "maxMs": 2073.199951171875,
+          "avgMs": 73.78986421742833
+        },
+        "transportLatency": {
+          "p50Ms": 15.699951171875,
+          "p95Ms": 57.500244140625,
+          "p99Ms": 1959.89990234375,
+          "avgMs": 52.61486954079535
+        },
+        "renderPaintOverhead": {
+          "avgMs": 21.174994676632988
+        },
+        "reliability": {
+          "missingDeliveries": 0,
+          "duplicateDeliveries": 0,
+          "rejectedOperations": 0,
+          "failedHandlers": 0,
+          "contentDivergences": 0,
+          "authoritativeRevision": 66
+        },
+        "passed": true
+      },
+      "recalculated": {
+        "renderedLatency": {
+          "count": 1064,
+          "min": 1.5,
+          "max": 2073.199951171875,
+          "avg": 73.78986421742833,
+          "p50_floor": 35.400146484375,
+          "p95_floor": 83.60009765625,
+          "p99_floor": 1964,
+          "p50_nearestRank": 35.400146484375,
+          "p95_nearestRank": 83.60009765625,
+          "p99_nearestRank": 1964
+        },
+        "wsDeliveryLatency": {
+          "count": 1064,
+          "min": 1,
+          "max": 2069.10009765625,
+          "avg": 52.61486954079535,
+          "p50_floor": 15.699951171875,
+          "p95_floor": 57.500244140625,
+          "p99_floor": 1959.89990234375,
+          "p50_nearestRank": 15.600341796875,
+          "p95_nearestRank": 57.500244140625,
+          "p99_nearestRank": 1959.89990234375
+        },
+        "renderPaintOverhead": {
+          "count": 1064,
+          "min": 0.39990234375,
+          "max": 100.599853515625,
+          "avg": 21.174994676632988,
+          "p50_floor": 20,
+          "p95_floor": 44.199951171875,
+          "p99_floor": 67.89990234375,
+          "p50_nearestRank": 20,
+          "p95_nearestRank": 44.199951171875,
+          "p99_nearestRank": 67.89990234375
+        }
+      },
+      "discrepancies": {
+        "p50RenderedMatch": true,
+        "p95RenderedMatch": true,
+        "p99RenderedMatch": true,
+        "p50WsMatch": true,
+        "p95WsMatch": true
+      }
+    }
+  ],
+  "combined": {
+    "totalValidSamples": 3192,
+    "renderedLatency": {
+      "count": 3192,
+      "min": 1.5,
+      "max": 2073.199951171875,
+      "avg": 55.88860334429825,
+      "p50_floor": 37.10009765625,
+      "p95_floor": 102.10009765625,
+      "p99_floor": 216,
+      "p50_nearestRank": 37.10009765625,
+      "p95_nearestRank": 102.10009765625,
+      "p99_nearestRank": 216
+    },
+    "wsDeliveryLatency": {
+      "count": 3192,
+      "min": 0.899658203125,
+      "max": 2069.10009765625,
+      "avg": 30.618147694676143,
+      "p50_floor": 15.900146484375,
+      "p95_floor": 43.5,
+      "p99_floor": 210.699951171875,
+      "p50_nearestRank": 15.89990234375,
+      "p95_nearestRank": 43.5,
+      "p99_nearestRank": 210.699951171875
+    }
+  }
+}

@@ -1,0 +1,10 @@
+
+> live-collaborative-workspace@1.0.0 test:collaboration
+> playwright test tests/e2e/collaboration.spec.ts
+
+
+Running 1 test using 1 worker
+
+  ok 1 [chromium] ΓÇ║ tests\e2e\collaboration.spec.ts:4:3 ΓÇ║ Multi-Client Collaboration (Playwright E2E) ΓÇ║ two independent browser clients synchronize tasks and comments in real time (4.3s)
+
+  1 passed (10.2s)
